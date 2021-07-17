@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 
-class Footer extends Component {
+class BottomFooter extends Component {
     render() {
         return (
             <>
                 {/* <!-- Footer --> */}
-                <footer class="sticky-footer bg-white">
+                <footer class="sticky-footer">
                     <div class="container my-auto">
                         <div class="copyright text-center my-auto">
                             <span>Copyright &copy; Your Website 2021</span>
@@ -16,5 +16,15 @@ class Footer extends Component {
             </>
         );
     }
+}
+
+const Footer = () =>{
+    return (
+         <>
+             {
+                 location.pathname != '/' && location.pathname != '/register' && location.pathname != '/forgot' ?  <BottomFooter /> : null
+             }
+         </>
+    )
 }
 export default Footer;

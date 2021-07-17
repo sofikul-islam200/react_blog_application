@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-class Sidebar extends Component {
+class LeftSidebar extends Component {
     render() {
         return (
             <>
@@ -12,13 +12,12 @@ class Sidebar extends Component {
                     {/* <!-- Sidebar - Brand --> */}
                     <a
                         className="sidebar-brand d-flex align-items-center justify-content-center"
-                        href=""
                     >
                         <div className="sidebar-brand-icon rotate-n-15">
                             <i className="fas fa-laugh-wink"></i>
                         </div>
                         <div className="sidebar-brand-text mx-3">
-                            SBS<sup>blog</sup>
+                          <Link to="/dashboard" style={{color:'white',textDecoration:'none'}}>     SBS<sup>blog</sup> </Link>
                         </div>
                     </a>
 
@@ -26,9 +25,9 @@ class Sidebar extends Component {
                     {/*
 <!-- Nav Item - Dashboard --> */}
                     <li className="nav-item active">
-                        <a className="nav-link" href="index.html">
+                        <a className="nav-link">
                             <i className="fas fa-fw fa-tachometer-alt"></i>
-                            <span>Dashboard</span>
+                            <span><Link to="/dashboard" style={{color:'white',textDecoration:'none'}}>Dashboard</Link></span>
                         </a>
                     </li>
 
@@ -168,4 +167,18 @@ class Sidebar extends Component {
         );
     }
 }
+
+
+const Sidebar = () => {
+    return (
+       <>
+             {
+                 location.pathname != '/' && location.pathname != '/register' && location.pathname != '/forgot' ?  <LeftSidebar /> : null
+             }
+       </>
+    )
+}
+
+
+
 export default Sidebar;
